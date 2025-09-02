@@ -1,6 +1,6 @@
-package kopo.sideproject.repositroy;
+package kopo.sideproject.repository;
 
-import kopo.sideproject.repositroy.entity.UserInfoEntity;
+import kopo.sideproject.repository.entity.UserInfoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

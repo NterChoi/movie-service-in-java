@@ -1,8 +1,8 @@
 package kopo.sideproject.service.impl;
 
 import kopo.sideproject.dto.UserInfoDTO;
-import kopo.sideproject.repositroy.UserInfoRepository;
-import kopo.sideproject.repositroy.entity.UserInfoEntity;
+import kopo.sideproject.repository.UserInfoRepository;
+import kopo.sideproject.repository.entity.UserInfoEntity;
 import kopo.sideproject.service.IUserInfoService;
 import kopo.sideproject.util.CmmUtil;
 import kopo.sideproject.util.DateUtil;

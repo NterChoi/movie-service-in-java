@@ -1,4 +1,4 @@
-package kopo.sideproject.repositroy.entity;
+package kopo.sideproject.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
