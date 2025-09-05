@@ -1,13 +1,13 @@
 package kopo.sideproject.repository.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -80,4 +80,8 @@ public class TheaterEntity {
 
     @Column(name = "HOMEPAGE")
     private String homepage;
+
+    // Theater(1) : Showtime(N)
+    @OneToMany(mappedBy = "theater", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<ShowtimeEntity> showtimes = new ArrayList<>();
 }
