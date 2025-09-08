@@ -38,4 +38,5 @@ out/
 
 GEMINI.md
 application.yml
-"/src/main/resources/excel/" 
+/src/main/resources/excel/
+PROJECT_PLAN.md

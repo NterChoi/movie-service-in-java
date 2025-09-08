@@ -1,6 +1,8 @@
 package kopo.sideproject.repository.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -8,7 +10,10 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Getter
+@Builder
+@AllArgsConstructor
 @Slf4j
 @NoArgsConstructor
 @Entity
@@ -30,6 +35,12 @@ public class MovieEntity {
 
     @Column(name = "poster_url")
     private String posterUrl;
+
+    @Column(name = "overview")
+    private String overview;
+
+    @Column(name = "vote_average")
+    private double voteAverage;
 
     // Movie(1) : Showtime(N)
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
