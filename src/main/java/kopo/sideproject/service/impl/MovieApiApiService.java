@@ -28,7 +28,7 @@ public class MovieApiApiService implements IMovieApiService {
     public TmdbResponseDTO getNowPlayingMovies(int page) {
         log.info(this.getClass().getName() + ".getNowPlayingMovies Start!");
 
-        String url = TMDB_API_BASE_URL + "now_playing?api_key=" + apiKey + "&page=ko-&region=KR&page=" + page;
+        String url = TMDB_API_BASE_URL + "movie/now_playing?api_key=" + apiKey + "&language=ko-KR&region=KR&page=" + page;
 
         TmdbResponseDTO response = webClientBuilder.build()
                 .get()

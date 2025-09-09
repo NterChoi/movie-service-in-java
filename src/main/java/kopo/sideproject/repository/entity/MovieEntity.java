@@ -17,7 +17,7 @@ import java.util.List;
 @Slf4j
 @NoArgsConstructor
 @Entity
-@Table(name = "MOVIE")
+@Table(name = "movie")
 public class MovieEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +36,7 @@ public class MovieEntity {
     @Column(name = "poster_url")
     private String posterUrl;
 
-    @Column(name = "overview")
+    @Column(name = "overview", length = 2000)
     private String overview;
 
     @Column(name = "vote_average")

@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,11 +18,17 @@ public class ShowtimeEntity {
     @Column(name = "showtime_id")
     private Long showtimeId;
 
-    @Column(name = "start_time", nullable = false)
-    private LocalDateTime startTime;
+    // 크롤링한 상영 시간 문자열 (예: "10:00")
+    @Column(name = "showtime")
+    private String showtime;
 
-    @Column(name = "end_time")
-    private LocalDateTime endTime;
+    // 상세 상영관 정보 (예: "르 리클라이너 1관")
+    @Column(name = "screen_info")
+    private String screenInfo;
+
+    // 영화관 체인 이름 (예: "Megabox")
+    @Column(name = "cinema_name")
+    private String cinemaName;
 
     // Showtime(N) : Movie(1)
     @ManyToOne(fetch = FetchType.LAZY)
