@@ -14,7 +14,7 @@ public class CrawlingController {
 
     private final CrawlingService crawlingService;
 
-    public String crawl(){
+    public String crawl() throws Exception{
         log.info(this.getClass().getName() + ".crawl Start");
 
         crawlingService.doCrawling();

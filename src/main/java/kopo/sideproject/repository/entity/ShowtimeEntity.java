@@ -1,13 +1,13 @@
 package kopo.sideproject.repository.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@Builder
+@AllArgsConstructor
 @Entity
 @Table(name = "SHOWTIME")
 public class ShowtimeEntity {
