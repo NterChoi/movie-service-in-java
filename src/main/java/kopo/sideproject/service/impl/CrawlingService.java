@@ -24,21 +24,26 @@ public class CrawlingService {
     private final MovieRepository movieRepository;
     private final ShowtimeRepository showtimeRepository;
 
-    public void doCrawling() throws Exception{
+    public void doCrawling(){
         log.info("Crawling for all sites Starts");
 
         // 주입받은 모든 크롤러를 순회하며 실행
-        crawlers.forEach(crawler -> {
-            // 크롤러의 클래스 이름에서 영화관 체인 이름을 추출 (예: MegaboxCrawlerService -> Megabox)
-            String cinemaName = crawler.getClass().getSimpleName().replace("CrawlerService", "");
-            log.info(crawler.getClass().getName() + "started!");
+        for (ICrawler crawler : crawlers) {
+            try {
+                // 크롤러의 클래스 이름에서 영화관 체인 이름을 추출 (예: MegaboxCrawlerService -> Megabox)
+                String cinemaName = crawler.getClass().getSimpleName().replace("CrawlerService", "");
+                log.info(crawler.getClass().getName() + " started!");
 
-            // 1. 크롤러 실행
-            List<CrawlerResultDTO> crawledData = crawler.crawl();
+                // 1. 크롤러 실행
+                List<CrawlerResultDTO> crawledData = crawler.crawl();
 
-            // 2. 크롤링한 데이터를 DB에 저장 (하나의 트랜잭션으로 묶음)
-            saveCrawledData(crawledData, cinemaName);
-        });
+                // 2. 크롤링한 데이터를 DB에 저장 (하나의 트랜잭션으로 묶음)
+                saveCrawledData(crawledData, cinemaName);
+            } catch (Exception e) {
+                // 개별 크롤러에서 에러 발생 시 로그 남기고 다음 크롤러로 넘어감
+                log.error("Crawling failed for " + crawler.getClass().getSimpleName() + ", continuing to next.", e);
+            }
+        }
 
         log.info("Crawling for all sites Ends");
     }
