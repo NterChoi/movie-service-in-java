@@ -25,7 +25,7 @@ public class MovieApiService {
     public TmdbResponseDTO getNowPlayingMovies(int page) {
         log.info(this.getClass().getName() + ".getNowPlayingMovies Start!");
 
-        TmdbResponseDTO response = movieApiService.getNowPlayingMovies(apiKey, page, "ko-KR");
+        TmdbResponseDTO response = movieApiService.getNowPlayingMovies( page, "ko-KR");
 
         if (response != null && response.results() != null) {
 

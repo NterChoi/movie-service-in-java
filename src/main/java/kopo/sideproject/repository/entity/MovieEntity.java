@@ -7,9 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 @Getter
 @Builder
@@ -41,8 +38,4 @@ public class MovieEntity {
 
     @Column(name = "vote_average")
     private double voteAverage;
-
-    // Movie(1) : Showtime(N)
-    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<ShowtimeEntity> showtimes = new ArrayList<>();
 }

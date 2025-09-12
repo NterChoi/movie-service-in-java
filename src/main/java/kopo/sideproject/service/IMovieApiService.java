@@ -1,11 +1,12 @@
 package kopo.sideproject.service;
 
+import kopo.sideproject.config.TmdbFeignConfig;
 import kopo.sideproject.dto.TmdbResponseDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name = "tmdb-api", url = "https://api.themoviedb.org/3")
+@FeignClient(name = "tmdb-api", url = "${tmdb.api.url}", configuration = TmdbFeignConfig.class)
 public interface IMovieApiService {
 
     /**
@@ -15,7 +16,8 @@ public interface IMovieApiService {
      * @return TMDB API 응답 DTO
      */
     @GetMapping("/movie/now_playing")
-    TmdbResponseDTO getNowPlayingMovies(@RequestParam("api_key") String apiKey,
-                                        @RequestParam("page") int page,
-                                        @RequestParam("language") String language);
+    TmdbResponseDTO getNowPlayingMovies(
+            @RequestParam("page") int page,
+            @RequestParam("language") String language
+    );
 }
