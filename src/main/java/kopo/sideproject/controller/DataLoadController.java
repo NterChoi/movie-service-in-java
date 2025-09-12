@@ -1,8 +1,6 @@
 package kopo.sideproject.controller;
 
 import kopo.sideproject.dto.MsgDTO;
-import kopo.sideproject.service.IExcelService;
-import kopo.sideproject.service.IMovieApiService;
 import kopo.sideproject.service.impl.MovieApiService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

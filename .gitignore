@@ -40,3 +40,6 @@ GEMINI.md
 application.yml
 /src/main/resources/excel/
 PROJECT_PLAN.md
+
+# Frontend project
+/frontend
